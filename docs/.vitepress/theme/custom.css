@@ -14,7 +14,7 @@
 .vp-doc p img {
   display: inline;
   vertical-align: middle;
-  height: 1em;
+  height: 1.5em;
   margin: 0 4px;
   margin-bottom: 2px;
 }
@@ -54,3 +54,37 @@
     background-color: transparent !important;
   }
 }
+:root {
+  /* 左侧导航宽度 */
+  --vp-sidebar-width: 220px;
+
+  /* 页面最大宽度 */
+  --vp-layout-max-width: 1800px;
+}
+
+
+/* =========================
+   右侧目录宽度缩小
+========================= */
+
+@media (min-width: 1280px) {
+
+  .VPDocAside {
+    width: 180px !important;
+    padding-left: 20px;
+  }
+
+  .VPContent.has-sidebar {
+    padding-right: 200px !important;
+  }
+}
+
+
+/* =========================
+   正文区域变宽
+========================= */
+
+.VPDoc.has-aside .content-container {
+  max-width: 1000px !important;
+}
+
