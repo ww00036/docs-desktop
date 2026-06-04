@@ -24,7 +24,8 @@ sidebar_position: 1
 
 点击标注，右侧会显示该标注详细信息，可修改标注名称、颜色。
 
->更多标注相关操作见[标注测量](../8.Mark&Measure/8.Mark&Measure.md)
+>更多标注相关操作点击跳转：[**标点测量**](../8.Mark&Measure/PointMeasure.md)、[**标线测量**](../8.Mark&Measure/LineMeasure.md)、[**标面测量**](../8.Mark&Measure/AreaMeasure.md)、[**体积测量**](../8.Mark&Measure/VolumeMeasure.md)、[**测量导出**](../8.Mark&Measure/MeasureResults.md)
+
 
 
 

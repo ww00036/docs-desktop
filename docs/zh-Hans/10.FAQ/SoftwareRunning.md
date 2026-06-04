@@ -1,6 +1,6 @@
 ---
 title: 软件运行
-sidebar_position: 2
+sidebar_position: 1
 ---
 ## 软件运行
 
