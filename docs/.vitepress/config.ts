@@ -17,12 +17,12 @@ type LocaleSpec = {
 };
 
 const localeSpecs: Record<string, LocaleSpec> = {
-  root: {label: "English", lang: "en-US", path: "/", outlineTitle: "On this page"},
+  root: {label: "English", lang: "en-US", path: "/en/", outlineTitle: "On this page"},
   "zh-Hans": {label: "简体中文", lang: "zh-CN", path: "/zh-Hans/", outlineTitle: "本页导航"},
 };
 
 function localeContentRoot(localeKey: string): string {
-  return localeKey === "root" ? docsRoot : path.join(docsRoot, localeKey);
+  return localeKey === "root" ? path.join(docsRoot, "en") : path.join(docsRoot, localeKey);
 }
 
 function makeLocaleTheme(pathPrefix: string, localeKey: string) {
@@ -32,7 +32,27 @@ function makeLocaleTheme(pathPrefix: string, localeKey: string) {
 
   return {
     logo: "/img/mipmap_icon.png",
-    nav: [{text: "Desktop", link: pathPrefix}],
+    nav:
+      localeKey === "zh-Hans"
+        ? [
+            {text: "MipMap官网", link: "https://www.mipmap3d.com/"},
+            {text: "B站", link: "https://space.bilibili.com/3546666453960858"},
+            {
+              text: "抖音",
+              link: "https://www.douyin.com/user/MS4wLjABAAAACuPHt6LZw97U20dSiqKrVD-H4QlhgsQlNz-Q-4APdbUWop9TdqBpwwBRvMLQfn2-",
+            },
+          ]
+        : [],
+    socialLinks:
+      localeKey === "zh-Hans"
+        ? []
+        : [
+            {icon: "github", link: "https://github.com/MipMap-Software"},
+            {icon: "discord", link: "https://discord.gg/zMDTXCNxt"},
+            {icon: "youtube", link: "https://www.youtube.com/@MipMap3D"},
+            {icon: "reddit", link: "https://www.reddit.com/r/MipMap/"},
+            {icon: "linkedin", link: "https://www.linkedin.com/company/mipmaptech/"},
+          ],
     search: {
       provider: "local" as const,
     },
@@ -66,7 +86,7 @@ export default defineConfig({
   title: "MipMap Desktop",
   description: "MipMap Desktop",
   lang: "en-US",
-  base: isDev ? "/" : "./",
+  base: isDev ? "/" : "/desktop/",
   
 
   markdown: {
@@ -76,6 +96,10 @@ export default defineConfig({
         classes: "block-image",
       });
     },
+  },
+  rewrites: {
+    "zh-Hans/1.Overview.md": "zh-Hans/index.md",
+    "en/1.Overview.md": "en/index.md",
   },
   themeConfig: {
     search: {
